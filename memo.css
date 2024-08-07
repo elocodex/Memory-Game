@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 20px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: purple;
+}
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: plum;
+    padding: 40px 60px;
+}
+h2{
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .1rem;
+}
+.reset{
+    padding: 15px 20px;
+    color: plum;
+    background-color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+.reset:focus{
+    color: #fff;
+    background-color: purple;
+}
+.game{
+    width: 440px;
+    height: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+.item{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background-color: #fff;
+    transition: 1s;
+}
+.item.boxOpen{
+    transform: rotateY(0deg);
+} 
+.item:after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: purple;
+    transition: 1s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+.boxOpen:after,.boxMatch:after{
+    transform: rotateY(180deg);
+}
+.clockDiv{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    background: purple;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    font-weight: 800;
+    display: none;
+}
+@media (max-width:500px) {
+    .container{
+        padding: 40px 30px;
+    }
+}
